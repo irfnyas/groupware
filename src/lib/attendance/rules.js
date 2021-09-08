@@ -40,8 +40,6 @@ function createTimeRangeRule (name, start, end) {
         0
       )
 
-      // no need to worry of clash between rules
-      // due to lodash/inRange is non-inclusive of rangeEnd
       return _inRange(
         +value,
         addMinutes(+rangeStart, 1),
