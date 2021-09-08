@@ -3,25 +3,28 @@ import addMinutes from 'date-fns/addMinutes'
 
 /**
  * Rule handler.
- * @callback RuleHandler
- * @param {Object} checkinData - array element of "/attendance" XHR response data.
- * @returns {boolean}
+ * @callback  RuleHandler
+ * @param     {Object} checkinData - array element of "/attendance" XHR response data.
+ * @returns   {boolean}
  */
 
 /**
- * @param {Object} opts
- * @param {string} opts.name - rule name
- * @param {RuleHandler} opts.handler - handler
+ * Rule constructor.
+ * @param {Object}      opts
+ * @param {string}      opts.name     - rule name
+ * @param {RuleHandler} opts.handler  - handler
  */
 export function Rule ({ name, handler } = {}) {
   this.name = name
   this.handler = handler
+  return this
 }
 
 /**
  * Time range rule factory.
- * @param {string} start - HH:MM format
- * @param {string} end - HH:MM format
+ * @param {string} name   - rule name
+ * @param {string} start  - HH:MM format
+ * @param {string} end    - HH:MM format
  * @returns {Rule}
  */
 export function createTimeRangeRule (name, start, end) {

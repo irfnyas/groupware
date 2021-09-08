@@ -16,6 +16,9 @@ const dayoff = new Rule({
 })
 
 /**
+ * If rule is not a typeof time range,
+ * ordering must be based on priotity,
+ * since rule is matched using match-first strategy.
  * @type {Rule[]}
  */
 const rules = [
@@ -26,8 +29,8 @@ const rules = [
 ]
 
 /**
- * @param {Object} checkinData - array element of "/attendance" XHR response data.
- * @returns {string[]} matched rule names
+ * @param {Object}      checkinData - array element of "/attendance" XHR response data.
+ * @returns {string[]}  matched rule names
  */
 export function getMatchedRule (checkinData) {
   let rule
