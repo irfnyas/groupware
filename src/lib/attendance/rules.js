@@ -29,16 +29,8 @@ function createTimeRangeRule (name, start, end) {
     handler (checkinData) {
       const { startDate } = checkinData
       const value = new Date(startDate).setSeconds(0, 0)
-      const rangeStart = new Date(startDate).setHours(
-        ...start.split(':'),
-        0,
-        0
-      )
-      const rangeEnd = new Date(startDate).setHours(
-        ...end.split(':'),
-        0,
-        0
-      )
+      const rangeStart = new Date(startDate).setHours(...start.split(':'), 0, 0)
+      const rangeEnd = new Date(startDate).setHours(...end.split(':'), 0, 0)
 
       return _inRange(
         +value,
