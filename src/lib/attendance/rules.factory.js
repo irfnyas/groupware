@@ -1,0 +1,42 @@
+import _inRange from 'lodash/inRange'
+import addMinutes from 'date-fns/addMinutes'
+
+/**
+ * Rule handler.
+ * @callback RuleHandler
+ * @param {Object} checkinData - array element of "/attendance" XHR response data.
+ * @returns {boolean}
+ */
+
+/**
+ * @param {string} name - rule name
+ * @param {RuleHandler} handler
+ */
+export function Rule (name, handler) {
+  this.name = name
+  this.handler = handler
+}
+
+/**
+ * Time range rule factory.
+ * @param {string} start - HH:MM format
+ * @param {string} end - HH:MM format
+ * @returns {Rule}
+ */
+export function createTimeRangeRule (name, start, end) {
+  return {
+    name,
+    handler (checkinData) {
+      const { startDate } = checkinData
+      const value = new Date(startDate).setSeconds(0, 0)
+      const rangeStart = new Date(startDate).setHours(...start.split(':'), 0, 0)
+      const rangeEnd = new Date(startDate).setHours(...end.split(':'), 0, 0)
+
+      return _inRange(
+        +value,
+        addMinutes(+rangeStart, 1),
+        addMinutes(+rangeEnd, 1)
+      )
+    }
+  }
+}
