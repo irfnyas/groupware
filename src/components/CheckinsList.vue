@@ -82,8 +82,11 @@
 import { ContentLoader } from 'vue-content-loader'
 import { mapGetters } from 'vuex'
 import { formatTime } from '@/lib/date'
-import { isBefore, isAfter, set } from 'date-fns'
 import { ATTENDANCE } from '../lib/constants'
+import {
+  RULE as ATTENDANCE_RULE,
+  validate as validateAttendance
+} from '../lib/attendance'
 import { moods } from '../components/Reactions'
 
 const moodValues = moods.map((m) => m.value)
@@ -141,27 +144,16 @@ export default {
     },
 
     getRowClass (item) {
-      if (item['message'] !== ATTENDANCE.PRESENT) {
-        return 'bg-white'
+      const attendance = validateAttendance(item)
+      const classes = {
+        [ATTENDANCE_RULE.ONTIME]: 'bg-green-200',
+        [ATTENDANCE_RULE.WARNING]: 'bg-yellow-200',
+        [ATTENDANCE_RULE.DANGER]: 'bg-red-200',
+        [ATTENDANCE_RULE.DAYOFF]: 'bg-white',
+        [ATTENDANCE_RULE.EXCEPTION_MO]: 'bg-white'
       }
 
-      const checkinDateTime = new Date(item['startDate'])
-      const yellowLine = set(checkinDateTime, { hours: 8, minutes: 0, seconds: 0 })
-      const redLine = set(checkinDateTime, { hours: 9, minutes: 0, seconds: 0 })
-
-      if (isAfter(checkinDateTime, redLine)) {
-        return 'bg-red-200'
-      }
-
-      if (isAfter(checkinDateTime, yellowLine)) {
-        return 'bg-yellow-200'
-      }
-
-      if (isBefore(checkinDateTime, yellowLine)) {
-        return 'bg-green-200'
-      }
-
-      return 'bg-white'
+      return classes[attendance] || 'bg-white'
     },
     hasDivisionAndRole (item) {
       return !!item.divisi && !!item.jabatan
