@@ -145,8 +145,12 @@ export default {
         return 'bg-white'
       }
 
+      if (item['jabatan'] === 'Monitoring Officer') {
+        return 'bg-white'
+      }
+
       const checkinDateTime = new Date(item['startDate'])
-      const yellowLine = set(checkinDateTime, { hours: 8, minutes: 0, seconds: 0 })
+      const yellowLine = set(checkinDateTime, { hours: 7, minutes: 31, seconds: 0 })
       const redLine = set(checkinDateTime, { hours: 9, minutes: 0, seconds: 0 })
 
       if (isAfter(checkinDateTime, redLine)) {
