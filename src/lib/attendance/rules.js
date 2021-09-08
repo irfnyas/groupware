@@ -8,8 +8,11 @@ export const RULE = {
   DANGER: 'danger'
 }
 
-const dayoff = new Rule(RULE.DAYOFF, (data) => {
-  return data.message !== ATTENDANCE.PRESENT
+const dayoff = new Rule({
+  name: RULE.DAYOFF,
+  handler (data) {
+    return data.message !== ATTENDANCE.PRESENT
+  }
 })
 
 /**

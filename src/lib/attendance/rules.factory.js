@@ -9,10 +9,11 @@ import addMinutes from 'date-fns/addMinutes'
  */
 
 /**
- * @param {string} name - rule name
- * @param {RuleHandler} handler
+ * @param {Object} opts
+ * @param {string} opts.name - rule name
+ * @param {RuleHandler} opts.handler - handler
  */
-export function Rule (name, handler) {
+export function Rule ({ name, handler } = {}) {
   this.name = name
   this.handler = handler
 }
