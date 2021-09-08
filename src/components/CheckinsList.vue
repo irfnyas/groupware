@@ -85,7 +85,7 @@ import { formatTime } from '@/lib/date'
 import { ATTENDANCE } from '../lib/constants'
 import {
   RULE as ATTENDANCE_RULE,
-  validate as validateAttendance
+  getMatchedRule as getMatchedAttendanceRule
 } from '../lib/attendance'
 import { moods } from '../components/Reactions'
 
@@ -144,16 +144,20 @@ export default {
     },
 
     getRowClass (item) {
-      const attendance = validateAttendance(item)
+      // "jabatan" is not a rule of attendance
+      // so it is handled separately
+      if (item.jabatan === 'Monitoring Officer') {
+        return 'bg-white'
+      }
+      const matched = getMatchedAttendanceRule(item)
       const classes = {
         [ATTENDANCE_RULE.ONTIME]: 'bg-green-200',
         [ATTENDANCE_RULE.WARNING]: 'bg-yellow-200',
         [ATTENDANCE_RULE.DANGER]: 'bg-red-200',
-        [ATTENDANCE_RULE.DAYOFF]: 'bg-white',
-        [ATTENDANCE_RULE.EXCEPTION_MO]: 'bg-white'
+        [ATTENDANCE_RULE.DAYOFF]: 'bg-white'
       }
 
-      return classes[attendance] || 'bg-white'
+      return classes[matched] || 'bg-white'
     },
     hasDivisionAndRole (item) {
       return !!item.divisi && !!item.jabatan
