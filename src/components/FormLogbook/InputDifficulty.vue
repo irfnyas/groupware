@@ -1,11 +1,12 @@
 <template>
   <FormRadioButtonGroup
+    v-show="isEnabled"
     :name="name"
     title="Tingkat Kesulitan"
     :options="[1,2,3,4,5]"
     :disabled="disabled"
-    :required="isRequired"
-    :rules="isRequired ? 'required' : ''"
+    :required="isEnabled"
+    :rules="isEnabled ? 'required' : ''"
     :custom-messages="{
       required: 'Tingkat kesulitan harus diisi'
     }"
@@ -55,7 +56,7 @@ export default {
         this.$emit('input', v)
       }
     },
-    isRequired () {
+    isEnabled () {
       let cutoff = process.env.VUE_APP_FORM_DIFFICULTY_TASK_CUTOFF
       if (!cutoff) {
         return false
