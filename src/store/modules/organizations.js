@@ -53,7 +53,8 @@ export const actions = {
     if (!Array.isArray(state.projects) || !state.projects.length) {
       return GroupwareAPI.get('/project/', {
         params: {
-          pageSize: 200
+          // TODO: should be lazy loaded
+          pageSize: 250
         }
       })
         .then(r => r.data.results)
