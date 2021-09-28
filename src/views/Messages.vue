@@ -2,7 +2,7 @@
   <div class="messages">
     <div class="container mx-auto">
       <div class="w-full lg:flex px-4 mb-4">
-        <p class="text-leading text-grey-darker">Messages</p>
+        <p class="text-leading text-grey-darker dark:text-white">Messages</p>
       </div>
       <messages-list class="mt-2" />
     </div>

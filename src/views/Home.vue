@@ -11,7 +11,7 @@
 
           <div>
             <div v-if="!user">
-              <h5 class="home-section-title">
+              <h5 class="home-section-title dark:text-white">
                 Login
               </h5>
               <div

@@ -22,12 +22,15 @@
         </div>
         <div class="app-grid-layout__second-column">
           <!-- intentionally blank -->
-          <ThemeSwitcher class="py-10 text-right"/>
+          <ThemeSwitcher
+            :theme="theme"
+            class="py-10 text-right"
+          />
         </div>
       </div>
     </div>
     <slot>
-      <router-view />
+      <router-view class="mb-12" style="min-height: calc(100vh - 12em);" />
     </slot>
     <navbar />
   </div>
@@ -50,9 +53,6 @@ export default {
 
   computed: {
     ...mapGetters({ theme: 'theme/getTheme' })
-    // showPopupNotification () {
-    //   return Notification.permission === 'default'
-    // }
   },
 
   data () {
@@ -70,9 +70,6 @@ export default {
       }
     },
     theme (newTheme, oldTheme) {
-      // newTheme === 'light'
-      //   ? document.querySelector('body').classList.remove('bg-primary-dark')
-      //   : document.querySelector('body').classList.add('bg-primary-dark')
       newTheme === 'light'
         ? document.querySelector('html').classList.remove('dark-mode')
         : document.querySelector('html').classList.add('dark-mode')
