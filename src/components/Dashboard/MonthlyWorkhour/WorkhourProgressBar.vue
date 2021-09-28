@@ -1,6 +1,6 @@
 <template>
   <div class="workhour-progress-bar">
-    <div class="workhour-progress-bar__desc">
+    <div class="workhour-progress-bar__desc text-blue-600 dark:text-white">
       <span class="mr-2">Jam kerja kamu bulan ini:</span>
       <i
         v-if="isLoading"
@@ -34,7 +34,7 @@
         style="color: rgba(0,0,0, 0.25);">
       </i>
     </div>
-    <p class="workhour-progress-bar__hint">
+    <p class="workhour-progress-bar__hint text-gray-600 dark:text-white">
       Batas minimum jam kerja 170 jam/bulan
     </p>
   </div>
@@ -70,7 +70,7 @@ export default {
 .workhour-progress-bar {
   &__desc {
     @apply mb-2 inline-flex flex-wrap justify-start items-center
-    text-sm text-blue-600;
+    text-sm;
   }
 
   &__bar {
@@ -110,7 +110,7 @@ export default {
   }
 
   &__hint {
-    @apply mt-1 text-xs text-gray-600;
+    @apply mt-1 text-xs;
   }
 }
 </style>
