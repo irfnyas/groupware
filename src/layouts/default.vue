@@ -1,5 +1,5 @@
 <template>
-  <div class="select-none no-pull-refresh">
+  <div class="select-none no-pull-refresh dark:bg-gray-800">
     <transition name="translate-to-bottom">
       <div
         v-if="showPopupNotification"
@@ -15,13 +15,14 @@
       </div>
     </transition>
 
-    <div class="bg-white mb-4 lg:mb-8">
+    <div class="bg-white dark:bg-gray-800 dark:text-white mb-4 lg:mb-8">
       <div class="container mx-auto app-grid-layout">
         <div class="app-grid-layout__first-column">
           <DigiteamEmblem class="p-6" />
         </div>
         <div class="app-grid-layout__second-column">
           <!-- intentionally blank -->
+          <ThemeSwitcher class="py-10 text-right"/>
         </div>
       </div>
     </div>
@@ -33,18 +34,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Navbar from '@/components/Navbar'
 import { messaging } from '@/lib/firebase'
 import { getDeviceTokenByUserId, retrieveToken, updateToken, listenToRefreshTokenEvent } from '../lib/fcm-notification'
 import DigiteamEmblem from '../components/DigiteamEmblem.vue'
+import ThemeSwitcher from '../components/ThemeSwitcher.vue'
 
 export default {
   components: {
     Navbar,
-    DigiteamEmblem
+    DigiteamEmblem,
+    ThemeSwitcher
   },
 
   computed: {
+    ...mapGetters({ theme: 'theme/getTheme' })
     // showPopupNotification () {
     //   return Notification.permission === 'default'
     // }
@@ -63,9 +68,19 @@ export default {
           this.checkPermission()
         }
       }
+    },
+    theme (newTheme, oldTheme) {
+      // newTheme === 'light'
+      //   ? document.querySelector('body').classList.remove('bg-primary-dark')
+      //   : document.querySelector('body').classList.add('bg-primary-dark')
+      newTheme === 'light'
+        ? document.querySelector('html').classList.remove('dark-mode')
+        : document.querySelector('html').classList.add('dark-mode')
     }
   },
-
+  beforeMount () {
+    this.$store.dispatch('theme/initTheme')
+  },
   mounted () {
     this.$store.dispatch('home-banners/fetchItems')
     this.$store.dispatch('home-articles/fetchItems')

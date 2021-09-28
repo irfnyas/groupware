@@ -55,7 +55,7 @@
             </h5>
             <AnnouncementList class="mt-2" @found="showAnnouncement = true" />
           </div>
-          <h5 class="home-section-title">
+          <h5 class="home-section-title dark:text-white">
             Artikel
           </h5>
           <HomeArticleList />

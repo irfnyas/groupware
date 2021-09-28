@@ -1,5 +1,6 @@
 module.exports = {
   theme: {
+    darkSelector: '.dark-mode',
     extend: {
       colors: {
         'brand-green-lighter': '#8FC749',
@@ -23,16 +24,22 @@ module.exports = {
       }
     }
   },
-  variants: {},
-  plugins: [],
+  variants: {
+    backgroundColor: ['dark', 'dark-hover', 'dark-group-hover', 'dark-even', 'dark-odd', 'hover', 'responsive'],
+    borderColor: ['dark', 'dark-focus', 'dark-focus-within', 'hover', 'responsive'],
+    textColor: ['dark', 'dark-hover', 'dark-active', 'hover', 'responsive']
+  },
+  plugins: [
+    require('tailwindcss-dark-mode')()
+  ],
   purge: {
     content: ['./public/**/*.html', './src/**/*.vue'],
     options: {
-      whitelistPatterns: [ 
-    /-(leave|enter|appear)(|-(to|from|active))$/, 
-    /^(?!(|.*?:)cursor-move).+-move$/,
+      whitelistPatterns: [
+        /-(leave|enter|appear)(|-(to|from|active))$/,
+        /^(?!(|.*?:)cursor-move).+-move$/,
         /^router-link(|-exact)-active$/
-      ],
-    },
- }
+      ]
+    }
+  }
 }

@@ -29,6 +29,8 @@ import {
   faStar,
   faClock,
   faTimes,
+  faMoon,
+  faSun,
   faFileWord
 } from '@fortawesome/free-solid-svg-icons'
 
@@ -61,6 +63,8 @@ const icons = [
   faStar,
   faClock,
   faTimes,
+  faMoon,
+  faSun,
   faFileWord
 ]
 
