@@ -7,11 +7,10 @@ html {
   overflow-y: scroll;
   margin: 0;
   padding: 0;
-  /* padding-bottom: 60px; */
 }
 
 body {
-  /* background-color: #F2F5F7; */
+  background-color: #F2F5F7;
   margin: 0;
   padding: 0;
 }

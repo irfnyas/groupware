@@ -1,5 +1,5 @@
 <template>
-  <div class="messages">
+  <div class="messages pb-10">
     <div class="container max-w-5xl mx-auto">
       <template v-if="user">
         <div class="flex flex-wrap justify-center m-0 mt-24 lg:mt-32">

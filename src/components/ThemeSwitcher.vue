@@ -3,10 +3,9 @@
     <i class="fa fa-sun" />
     <div class="relative inline-block w-10 mx-2 align-middle select-none transition duration-200 ease-in">
         <input
-          :model="colorTheme === 'light'"
+          v-model="colorTheme"
           type="checkbox"
           name="toggle"
-          id="toggle"
           class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
           @click="toggleTheme"
         />
@@ -27,16 +26,11 @@ export default {
   computed: {
     colorTheme: {
       get () {
-        return this.theme
+        return this.theme === 'dark'
       },
       set (val) {
-        return val
+        return val === 'dark'
       }
-    }
-  },
-  watch: {
-    colorTheme (val) {
-      console.log(val)
     }
   },
   methods: {

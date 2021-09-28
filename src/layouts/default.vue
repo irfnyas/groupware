@@ -15,9 +15,9 @@
       </div>
     </transition>
 
-    <div class="bg-white dark:bg-gray-800 dark:text-white mb-4 lg:mb-8">
-      <div class="container mx-auto app-grid-layout">
-        <div class="app-grid-layout__first-column">
+    <div class="bg-white dark:bg-gray-800 dark:text-white">
+      <div class="container mx-auto app-grid-layout grid grid-cols-3">
+        <div class="app-grid-layout__first-column col-span-2">
           <DigiteamEmblem class="p-6" />
         </div>
         <div class="app-grid-layout__second-column">
@@ -29,9 +29,11 @@
         </div>
       </div>
     </div>
-    <slot>
-      <router-view class="mb-12" style="min-height: calc(100vh - 12em);" />
-    </slot>
+    <div class="app-content">
+      <slot>
+        <router-view />
+      </slot>
+    </div>
     <navbar />
   </div>
 </template>
@@ -146,5 +148,9 @@ export default {
   &-leave-to {
     height: 0px;
   }
+}
+.app-content {
+  min-height: calc(100vh - 10rem);
+  @apply mt-4 mb-12;
 }
 </style>

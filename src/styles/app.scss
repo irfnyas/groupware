@@ -101,6 +101,7 @@ a.router-link-exact-active {
 }
 
 .app-grid-layout {
+
   @screen lg {
     @apply gap-8 flex flex-row;
   }
