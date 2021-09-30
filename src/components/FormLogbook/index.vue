@@ -63,6 +63,11 @@
         v-model="payload.dateTask"
       />
       <br />
+      <FormInputDifficulty
+        name="difficultyTask"
+        v-model="payload.difficultyTask"
+      />
+      <br />
       <FormInputEvidence
         ref="formInputEvidence"
         name="evidenceTask"
@@ -145,6 +150,7 @@
 
 <script>
 import FormLogbookSkeleton from './Skeleton'
+import FormInputDifficulty from './InputDifficulty'
 import FormInputTupoksi from './InputTupoksi'
 import FormInputLink from './InputLink'
 import FormInputProject from './InputProjectAutocomplete'
@@ -185,6 +191,7 @@ export default {
     FormInputProject,
     FormInput,
     FormInputEvidence,
+    FormInputDifficulty,
     FormInputDateTime,
     FormLogbookSkeleton
   },
@@ -313,10 +320,12 @@ export default {
         evidenceTaskPath,
         documentTaskURL,
         documentTaskPath,
+        difficultyTask,
         ...rest
       } = this.payload
 
       const formData = new FormData()
+      formData.append('difficultyTask', difficultyTask || '')
       Object.entries(rest).forEach(([key, value]) => {
         formData.append(key, value)
       })
@@ -345,7 +354,7 @@ export default {
       } = this.payload
 
       const formData = new FormData()
-      formData.append('difficultyTask', '')
+      formData.append('difficultyTask', difficultyTask || '')
       Object.entries(rest).forEach(([key, value]) => {
         formData.append(key, value)
       })
