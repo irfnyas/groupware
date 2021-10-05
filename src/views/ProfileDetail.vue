@@ -1,17 +1,17 @@
 <template>
   <div class="messages pb-10">
-    <div class="container max-w-5xl mx-auto">
+    <div class="container bg-white dark:bg-gray-900 max-w-5xl mx-auto">
       <template v-if="user">
         <div class="flex flex-wrap justify-center m-0 mt-24 lg:mt-32">
           <UserProfilePicture
             class="absolute transform -translate-y-16"
             :size="128" />
           <br>
-          <div class="bg-white flex-none w-full text-center p-6 pt-20 sm:rounded shadow">
-            <p class="text-lg font-semibold">
+          <div class="bg-white dark:bg-gray-900 flex-none w-full text-center p-6 pt-20 sm:rounded shadow">
+            <p class="text-lg font-semibold dark:text-white">
               {{ user.fullname }}
             </p>
-            <p v-if="user.jabatan" class="text-gray-600">
+            <p v-if="user.jabatan" class="text-gray-600 dark:text-gray-400">
               {{ user.jabatan }}
             </p>
           </div>
@@ -21,7 +21,7 @@
         </div>
       </template>
       <template v-else>
-        <div class="bg-white shadow p-4">
+        <div class="bg-white dark:bg-gray-900 shadow p-4">
           <content-loader
             :speed="2"
             primaryColor="#f3f3f3"

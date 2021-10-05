@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-white dark:bg-gray-800" style="position: fixed; bottom: 0">
+  <div class="w-full bg-white dark:bg-gray-900" style="position: fixed; bottom: 0">
     <div class="container mx-auto px-4">
       <div class="flex items-center w-full lg:max-w-sm lg:mx-auto justify-around flex-wrap">
         <div class="text-center px-2 py-1">

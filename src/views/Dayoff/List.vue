@@ -1,7 +1,7 @@
 <template>
   <div class="pb-4">
-    <div class="max-w-6xl mx-auto p-6 md:p-8 bg-white rounded-lg shadow-lg">
-      <h1 class="text-xl mb-8">
+    <div class="max-w-6xl mx-auto p-6 md:p-8 bg-white dark:bg-gray-900 rounded-lg shadow-lg">
+      <h1 class="text-xl mb-8 dark:text-white">
         <strong>Izin</strong>
       </h1>
       <div class="sm:hidden">

@@ -73,7 +73,7 @@
             :name="`permitAcknowledge[${index}]`"
             :value="isAcknowledgementOptionChecked(ack)"
             :checked="isAcknowledgementOptionChecked(ack)"/>
-          <label>
+          <label class="dark:text-white">
             {{ ack }}
           </label>
         </ValidationProvider>

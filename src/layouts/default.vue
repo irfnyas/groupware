@@ -15,7 +15,7 @@
       </div>
     </transition>
 
-    <div class="bg-white dark:bg-gray-800 dark:text-white">
+    <div class="bg-white dark:bg-gray-900 dark:text-white">
       <div class="container mx-auto app-grid-layout grid grid-cols-3">
         <div class="app-grid-layout__first-column col-span-2">
           <DigiteamEmblem class="p-6" />
