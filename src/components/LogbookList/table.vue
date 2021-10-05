@@ -6,7 +6,7 @@
       @change="onFilterChanged"
     />
     <header class="mb-4 flex justify-between items-center">
-      <p class="text-sm text-gray-600">
+      <p class="text-sm text-gray-600 dark:text-white">
         <template v-if="totalCount">
           Menampilkan {{ startIndex + 1 }} - {{ endIndex + 1 }} dari total {{ totalCount }} data
         </template>
@@ -20,7 +20,7 @@
       </p>
     </header>
     <div class="overflow-x-auto overflow-y-hidden">
-      <table class="logbook-table">
+      <table class="logbook-table text-gray-600 dark:text-white">
         <thead>
           <tr>
             <th style="width: 1%;">No.</th>
@@ -43,8 +43,8 @@
           </template>
           <template v-else-if="!logbookListData || !logbookListData.length">
             <tr>
-              <td colspan="7">
-                <div class="p-4 text-center font-bold text-gray-400 bg-gray-200 uppercase">
+              <td colspan="8">
+                <div class="p-4 text-center font-bold text-gray-400 bg-gray-200 dark:bg-gray-800 uppercase">
                   Tidak ada data
                 </div>
               </td>
@@ -255,7 +255,6 @@ export default {
     @apply border-t-2 border-b-2
     border-solid border-gray-300
     text-left
-    text-gray-600
     text-xs
     uppercase tracking-wider;
   }

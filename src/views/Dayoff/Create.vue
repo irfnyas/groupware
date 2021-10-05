@@ -1,6 +1,6 @@
 <template>
   <Card class="my-4 mx-auto max-w-xl">
-    <h1 class="text-xl font-bold">
+    <h1 class="text-xl font-bold dark:text-gray-300">
       Checkin Izin
     </h1>
     <hr class="my-4"/>

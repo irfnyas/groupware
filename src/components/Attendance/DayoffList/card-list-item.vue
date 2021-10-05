@@ -1,27 +1,27 @@
 <template>
   <Card class="dayoff-card" @click.capture.native="onGoToDetail">
     <template v-if="item">
-      <span class="dayoff-card__index">
+      <span class="dayoff-card__index text-gray-600 dark:text-white">
         {{ index + 1 }}.
       </span>
       <div>
-        <h6 class="dayoff-card__permit-type">
+        <h6 class="dayoff-card__permit-type dark:text-gray-400">
           {{ item.permits_type  }}
         </h6>
         <template v-if="!isSameDayStartAndEndDate">
-          <p class="dayoff-card__date">
+          <p class="dayoff-card__date text-gray-700 dark:text-gray-400">
             {{ formattedStartDate }}
           </p>
-          <p class="dayoff-card__date">
+          <p class="dayoff-card__date text-gray-700 dark:text-gray-400">
             {{ formattedEndDate }}
           </p>
         </template>
         <template v-else>
-          <p class="dayoff-card__date">
+          <p class="dayoff-card__date text-gray-700 dark:text-gray-400">
             {{ formattedDate }}
           </p>
         </template>
-        <p class="mt-4">
+        <p class="mt-4 text-gray-700 dark:text-gray-400">
           {{ item.note }}
         </p>
       </div>
@@ -117,7 +117,7 @@ export default {
   }
 
   &__index {
-    @apply text-xl text-gray-600;
+    @apply text-xl;
   }
 
   &__permit-type {
@@ -125,7 +125,7 @@ export default {
   }
 
   &__date {
-    @apply text-sm text-gray-700;
+    @apply text-sm;
   }
 
   &__chevron-right {

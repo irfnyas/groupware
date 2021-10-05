@@ -109,7 +109,7 @@ export default {
 
 <style lang="scss" scoped>
 .logbook-cards {
-  @apply list-none;
+  @apply list-none pt-8;
 }
 
 .floating-action-button {

@@ -14,7 +14,7 @@
       @change="onPerPageChanged"
     >
       <template #title>
-        <span class="text-xs text-gray-600">
+        <span class="text-xs text-gray-600 dark:text-gray-300">
           Item per Halaman
         </span>
       </template>

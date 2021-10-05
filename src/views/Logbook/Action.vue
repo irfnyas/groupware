@@ -1,6 +1,6 @@
 <template>
   <div class="pb-10">
-    <div class="max-w-xl mx-auto mt-16 p-8 bg-white rounded shadow-xl">
+    <div class="max-w-xl mx-auto mt-16 p-8 bg-white dark:bg-gray-900 rounded shadow-xl">
       <h1 class="font-bold text-2xl text-green-600">
         {{ pageTitle }}
       </h1>
