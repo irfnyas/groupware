@@ -8,7 +8,7 @@
         <button class="dayoff-btn-create" @click="onGoToDayoffForm">
           Laporkan Izin
         </button>
-        <h2 class="text-base mt-8 mb-4">
+        <h2 class="text-base mt-8 mb-4 dark:text-white">
           <strong>Daftar Izin</strong>
         </h2>
       </div>

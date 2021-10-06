@@ -12,7 +12,7 @@
     <FormInputHeader
       :title="inputTitle">
       <template #subtitle>
-        <span class="text-gray-600">
+        <span class="text-gray-600 dark:text-gray-300">
           {{ inputSubtitle }}
         </span>
       </template>
@@ -34,7 +34,7 @@
           class="emoji-animation-disabled with-css-filter"
           style="transform-origin: top center;"
           @click.native="onClick(moodValue)" />
-        <span class="form-mood-input__option-list-item__label">
+        <span class="form-mood-input__option-list-item__label text-gray-500 dark:text-gray-300">
           {{ getMoodLabel(moodValue) }}
         </span>
       </i>
@@ -120,7 +120,7 @@ export default {
     &__label {
       bottom: -2rem;
       @apply absolute whitespace-no-wrap
-      text-xs text-gray-500 text-center
+      text-xs text-center
       not-italic;
 
       @screen sm {

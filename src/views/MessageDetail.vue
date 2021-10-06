@@ -17,7 +17,7 @@
             </div>
           </div>
 
-          <div class="text-sm leading-normal mt-5 body-content dark:text-white" v-html="formatContent(item['content'])"></div>
+          <div class="text-sm leading-normal mt-5 body-content text-gray-700 dark:text-white" v-html="formatContent(item['content'])"></div>
 
           <template v-if="item['action_url']">
             <div class="my-2">

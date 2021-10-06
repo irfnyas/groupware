@@ -13,7 +13,7 @@
       </div>
 
       <div
-        class="text-sm leading-normal mt-5 body-content dark:text-white"
+        class="text-sm leading-normal mt-5 body-content text-gray-700 dark:text-white"
         v-html="item.content" />
 
       <template v-if="item.backlink">
