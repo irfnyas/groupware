@@ -1,6 +1,6 @@
 <template>
   <div class="monthly-workhour">
-    <p class="monthly-workhour__title">
+    <p class="monthly-workhour__title text-gray-900 dark:text-white">
       Jam Kerja Bulan Ini
     </p>
     <WorkhourProgressBar
@@ -37,7 +37,7 @@ export default {
 <style lang="scss" scoped>
 .monthly-workhour {
   &__title {
-    @apply mb-3 text-base font-bold text-gray-900;
+    @apply mb-3 text-base font-bold;
   }
 }
 </style>

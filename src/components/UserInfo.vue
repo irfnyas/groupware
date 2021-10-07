@@ -8,8 +8,8 @@
           tag="a">
           <UserProfilePicture class="flex-none mr-4" />
           <div class="inline-block flex-auto">
-            <strong class="block text-gray-900 text-lg leading-normal">{{ user.fullname }}</strong>
-            <p class="text-gray-600 text-sm">{{ user.jabatan }}</p>
+            <strong class="block text-gray-900 dark:text-white text-lg leading-normal">{{ user.fullname }}</strong>
+            <p class="text-gray-600 dark:text-white text-sm">{{ user.jabatan }}</p>
           </div>
         </router-link>
       </div>

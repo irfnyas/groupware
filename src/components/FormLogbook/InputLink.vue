@@ -16,7 +16,7 @@
     v-model="syncedValue"
   >
     <template #subtitle>
-      <p class="text-gray-700">
+      <p class="text-gray-700 dark:text-gray-400">
         Jika file hasil kerja berbentuk offline, silakan masukan file terlebih
         dahulu ke dalam google drive pada folder khusus yang diberikan aksesnya kepada
         <a

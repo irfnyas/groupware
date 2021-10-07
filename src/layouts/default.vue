@@ -1,5 +1,5 @@
 <template>
-  <div class="select-none no-pull-refresh">
+  <div class="select-none no-pull-refresh dark:bg-gray-800">
     <transition name="translate-to-bottom">
       <div
         v-if="showPopupNotification"
@@ -15,39 +15,46 @@
       </div>
     </transition>
 
-    <div class="bg-white mb-4 lg:mb-8">
-      <div class="container mx-auto app-grid-layout">
-        <div class="app-grid-layout__first-column">
+    <div class="bg-white dark:bg-gray-900 dark:text-white">
+      <div class="container mx-auto app-grid-layout grid grid-cols-3">
+        <div class="app-grid-layout__first-column col-span-2">
           <DigiteamEmblem class="p-6" />
         </div>
         <div class="app-grid-layout__second-column">
           <!-- intentionally blank -->
+          <ThemeSwitcher
+            :theme="theme"
+            class="py-10 text-right"
+          />
         </div>
       </div>
     </div>
-    <slot>
-      <router-view />
-    </slot>
+    <div class="app-content">
+      <slot>
+        <router-view />
+      </slot>
+    </div>
     <navbar />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Navbar from '@/components/Navbar'
 import { messaging } from '@/lib/firebase'
 import { getDeviceTokenByUserId, retrieveToken, updateToken, listenToRefreshTokenEvent } from '../lib/fcm-notification'
 import DigiteamEmblem from '../components/DigiteamEmblem.vue'
+import ThemeSwitcher from '../components/ThemeSwitcher.vue'
 
 export default {
   components: {
     Navbar,
-    DigiteamEmblem
+    DigiteamEmblem,
+    ThemeSwitcher
   },
 
   computed: {
-    // showPopupNotification () {
-    //   return Notification.permission === 'default'
-    // }
+    ...mapGetters({ theme: 'theme/getTheme' })
   },
 
   data () {
@@ -63,9 +70,16 @@ export default {
           this.checkPermission()
         }
       }
+    },
+    theme (newTheme, oldTheme) {
+      newTheme === 'light'
+        ? document.querySelector('html').classList.remove('dark-mode')
+        : document.querySelector('html').classList.add('dark-mode')
     }
   },
-
+  beforeMount () {
+    this.$store.dispatch('theme/initTheme')
+  },
   mounted () {
     this.$store.dispatch('home-banners/fetchItems')
     this.$store.dispatch('home-articles/fetchItems')
@@ -134,5 +148,9 @@ export default {
   &-leave-to {
     height: 0px;
   }
+}
+.app-content {
+  min-height: calc(100vh - 10rem);
+  @apply mt-4 mb-12;
 }
 </style>

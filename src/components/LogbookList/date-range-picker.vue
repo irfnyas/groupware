@@ -12,7 +12,7 @@
           @click.native.capture="showModal = true"
         >
           <template #title>
-            <span class="text-xs text-gray-600">
+            <span class="text-xs text-gray-600 dark:text-gray-300">
               Mulai
             </span>
           </template>
@@ -29,7 +29,7 @@
           @click.native.capture="showModal = true"
         >
           <template #title>
-            <span class="text-xs text-gray-600">
+            <span class="text-xs text-gray-600 dark:text-gray-300">
               Akhir
             </span>
           </template>
@@ -39,7 +39,7 @@
     </div>
     <div :class="['date-range-picker__modal', showModal && 'is-active']">
       <div class="p-4 rounded-lg bg-white shadow-lg">
-        <h5 class="font-bold text-gray-700 mb-4">
+        <h5 class="font-bold text-gray-700 dark:text-gray-300 mb-4">
           Filter Tanggal
         </h5>
         <VDatePicker

@@ -16,7 +16,7 @@
         }"
       >
         <template #title>
-          <span class="text-sm text-gray-800">
+          <span class="text-sm text-gray-800 dark:text-white">
             Username
           </span>
         </template>
@@ -34,7 +34,7 @@
           }"
         >
           <template #title>
-            <span class="text-sm text-gray-800">
+            <span class="text-sm text-gray-800 dark:text-white">
               Password
             </span>
           </template>

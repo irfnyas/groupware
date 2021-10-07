@@ -66,7 +66,7 @@
           <slot
             name="option-label"
             v-bind="{ option: opt, index }">
-            <p class="text-gray-700 ml-2 mb-2">
+            <p class="text-gray-700 dark:text-white ml-2 mb-2">
               {{ getOptionLabel(opt) }}
             </p>
           </slot>

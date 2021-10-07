@@ -5,17 +5,17 @@
         <div class="app-grid-layout__first-column">
           <div
             v-if="user"
-            class="home-card mb-4">
+            class="home-card mb-4 bg-white dark:bg-gray-900">
             <user-info />
           </div>
 
           <div>
             <div v-if="!user">
-              <h5 class="home-section-title">
+              <h5 class="home-section-title dark:text-white">
                 Login
               </h5>
               <div
-                class="home-card">
+                class="home-card bg-white dark:bg-gray-900">
                 <login-username-password />
                 <span class="login-button-separator">
                   ATAU
@@ -24,21 +24,21 @@
               </div>
             </div>
             <template v-else>
-              <div class="home-card mb-4">
+              <div class="home-card mb-4 bg-white dark:bg-gray-900">
                 <MonthlyWorkhour />
                 <AttendanceButton class="mt-8"/>
               </div>
-              <div class="home-card mb-4">
+              <div class="home-card mb-4 bg-white dark:bg-gray-900">
                 <LogbookHeatmaps />
               </div>
-              <div class="home-card mb-4">
+              <div class="home-card mb-4 bg-white dark:bg-gray-900">
                 <div class="grid grid-cols-3 gap-12">
                   <component
                     v-for="(m, index) in menuItems"
                     :key="index"
                     :is="getMenuLinkComponent(m)"
                     v-bind="getMenuLinkProps(m)" >
-                    <div class="text-center text-gray-700">
+                    <div class="text-center text-gray-700 dark:text-white">
                       <i aria-hidden="true" :class="[m.icon, 'text-2xl'] " />
                       <p class="text-xs mt-1">{{m.name}}</p>
                     </div>
@@ -50,12 +50,12 @@
         </div>
         <div class="app-grid-layout__second-column">
           <div v-if="user" v-show="showAnnouncement">
-            <h5 class="font-bold text-lg m-4 mt-0 leading-none">
+            <h5 class="font-bold text-lg m-4 mt-0 leading-none dark:text-white">
               Pengumuman Penting
             </h5>
             <AnnouncementList class="mt-2" @found="showAnnouncement = true" />
           </div>
-          <h5 class="home-section-title">
+          <h5 class="home-section-title dark:text-white">
             Artikel
           </h5>
           <HomeArticleList />
@@ -169,8 +169,8 @@ export default {
 
   @apply overflow-hidden p-6
   border-none
-  rounded-none
-  bg-white;
+  rounded-none;
+  // bg-white;
 
   @screen sm {
     @apply rounded-lg;

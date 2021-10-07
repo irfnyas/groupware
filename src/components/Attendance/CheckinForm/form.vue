@@ -1,7 +1,7 @@
 <template>
   <ValidationObserver #default="{ handleSubmit }">
     <div class="checkin-form">
-      <span class="checkin-form__date">
+      <span class="checkin-form__date text-gray-600 dark:text-gray-300">
         {{ todayDateString }}
       </span>
       <!-- START: CHECKIN HOUR AND MINUTE INPUT -->
@@ -233,7 +233,7 @@ export default {
 <style lang="scss" scoped>
 .checkin-form {
   &__date {
-    @apply block mb-8 text-gray-600 text-lg font-bold;
+    @apply block mb-8 text-lg font-bold;
   }
 
   &__hour-min {

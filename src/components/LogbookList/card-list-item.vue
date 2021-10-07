@@ -2,7 +2,7 @@
   <component :is="tag" class="logbook-cards__card">
     <div class="logbook-cards__card__header">
       <div>
-        <span class="logbook-cards__card__index">
+        <span class="logbook-cards__card__index text-gray-500 dark:text-gray-300">
           {{ index }}
         </span>
       </div>
@@ -17,12 +17,12 @@
         </button>
       </div>
     </div>
-    <p class="logbook-cards__card__task-date">
+    <p class="logbook-cards__card__task-date text-gray-700 dark:text-gray-300">
       <span>
         {{ formatDateLong(logbook.dateTask, 'eeee, PPP') }}
       </span>
     </p>
-    <div class="logbook-cards__card__info-wrapper">
+    <div class="logbook-cards__card__info-wrapper text-gray-700 dark:text-gray-300">
       <label>Nama Project</label>
       <p><strong>{{ logbook.projectName }}</strong></p>
 
@@ -101,7 +101,7 @@ export default {
   border border-solid border-gray-300;
 
   &__index {
-    @apply mb-2 text-base text-gray-500 font-bold not-italic;
+    @apply mb-2 text-base font-bold not-italic;
   }
 
   &__header {
@@ -116,7 +116,7 @@ export default {
   }
 
   &__task-date {
-    @apply my-2 flex-none text-sm text-gray-700;
+    @apply my-2 flex-none text-sm;
   }
 
   &__info-wrapper {
@@ -125,9 +125,9 @@ export default {
     gap: 1rem 1rem;
     @apply mt-4 text-sm;
 
-    > label {
-      @apply text-gray-700;
-    }
+    // > label {
+    //   @apply ;
+    // }
   }
 
   .document-icon {

@@ -1,6 +1,6 @@
 <template>
   <tr
-    class="logbook-table__table-row">
+    class="logbook-table__table-row text-gray-700 dark:text-white">
     <td>
       {{ index }}
     </td>
@@ -105,8 +105,7 @@ export default {
 
   td {
     @apply border-b border-solid border-gray-300
-    text-left
-    text-gray-700;
+    text-left;
   }
 
   .action-button {

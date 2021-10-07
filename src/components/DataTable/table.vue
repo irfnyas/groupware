@@ -4,7 +4,7 @@
       <VPagination v-bind="paginationProps" />
     </div>
     <header class="mb-4 flex justify-between items-center">
-      <p class="text-sm text-gray-600">
+      <p class="text-sm text-gray-600 dark:text-white">
         <template v-if="pagination.totalCount">
           Menampilkan {{ startIndex + 1 }} - {{ endIndex + 1 }} dari total {{ pagination.totalCount }} data
         </template>
@@ -13,7 +13,7 @@
     </header>
     <div class="flex justify-center overflow-x-auto overflow-y-hidden">
       <table
-        class="datatable__table"
+        class="datatable__table text-gray-600 dark:text-white"
         :aria-describedby="description">
         <thead>
           <tr>
@@ -181,7 +181,6 @@ export default {
     @apply border-t-2 border-b-2
     border-solid border-gray-300
     text-left
-    text-gray-600
     text-xs
     uppercase tracking-wider;
   }

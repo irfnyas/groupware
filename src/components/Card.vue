@@ -1,5 +1,5 @@
 <template>
-  <div :class="['card bg-white', attrsToClassList]">
+  <div :class="['card bg-white dark:bg-gray-900', attrsToClassList]">
     <slot></slot>
   </div>
 </template>

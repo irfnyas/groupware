@@ -2,22 +2,22 @@
   <div class="messages">
     <div class="container mx-auto">
       <div class="w-full lg:flex px-4 mb-4">
-        <p class="text-leading text-grey-darker">Messages</p>
+        <p class="text-leading text-grey-darker dark:text-white">Messages</p>
       </div>
 
-      <div class="bg-white shadow p-4">
+      <div class="bg-white dark:bg-gray-900 shadow p-4">
         <template v-if="!loading">
           <div class="flex">
             <div class="flex items-center block mx-auto mr-4">
               <i aria-hidden="true" class="fas fa-envelope text-brand-green text-lg" />
             </div>
-            <div class="text-left flex-grow">
+            <div class="text-left flex-grow dark:text-white">
               <p class="text-sm leading-normal">{{ item['title'] }}</p>
-              <p class="text-sm text-gray-600">{{ formatDateShort(item['published_at'].toDate()) }}</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">{{ formatDateShort(item['published_at'].toDate()) }}</p>
             </div>
           </div>
 
-          <div class="text-sm leading-normal mt-5 body-content" v-html="formatContent(item['content'])"></div>
+          <div class="text-sm leading-normal mt-5 body-content text-gray-700 dark:text-white" v-html="formatContent(item['content'])"></div>
 
           <template v-if="item['action_url']">
             <div class="my-2">

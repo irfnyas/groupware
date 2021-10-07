@@ -19,7 +19,7 @@
           #subtitle
         >
           <p>
-            <i aria-hidden="true" class="text-gray-600">
+            <i aria-hidden="true" class="text-gray-600 dark:text-gray-300">
               Nama project Anda tidak ada? Kontak admin via
             </i>
             <a
@@ -86,7 +86,7 @@
         <template
           v-if="!isViewingOnly"
           #subtitle>
-          <span class="text-gray-700">
+          <span class="text-gray-700 dark:text-gray-400">
             File tidak boleh lebih dari 5MB
           </span>
         </template>

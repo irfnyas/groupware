@@ -2,22 +2,22 @@
   <div class="dayoff-confirmation">
     <template v-if="!isFormSubmitted">
       <div v-if="payload" class="dayoff-confirmation__body">
-        <h3 class="text-xl font-bold">
+        <h3 class="text-xl font-bold dark:text-gray-300">
           Konfirmasi Izin
         </h3>
-        <p>
+        <p class="text-gray-800 dark:text-gray-300">
           Yuk cek lagi data izin kamu hari ini.
         </p>
         <strong class="text-green-600 text-lg leading-loose">{{ payload.permitsType }}</strong>
         <br />
-        <label>Dari</label>
-        <p>{{ formatDateLong(payload.startDate) }}</p>
+        <label class="text-gray-500">Dari</label>
+        <p class="text-gray-800 dark:text-gray-300">{{ formatDateLong(payload.startDate) }}</p>
 
-        <label>Sampai</label>
-        <p>{{ formatDateLong(payload.endDate) }}</p>
+        <label class="text-gray-500">Sampai</label>
+        <p class="text-gray-800 dark:text-gray-300">{{ formatDateLong(payload.endDate) }}</p>
 
-        <label>Sudah konfirmasi ke</label>
-        <p>
+        <label class="text-gray-500">Sudah konfirmasi ke</label>
+        <p class="text-gray-800 dark:text-gray-300">
           <ul
             v-if="payload.permitAcknowledged && payload.permitAcknowledged.length"
             class="list-decimal list-inside">
@@ -27,10 +27,10 @@
           </ul>
         </p>
 
-        <label>Alasan</label>
-        <p>{{ payload.note || '-' }}</p>
+        <label class="text-gray-500">Alasan</label>
+        <p class="text-gray-800 dark:text-gray-300">{{ payload.note || '-' }}</p>
 
-        <label>Evidence</label>
+        <label class="text-gray-500">Evidence</label>
         <img
           alt="Dayoff Evidence"
           :src="payload.imageURL"
@@ -170,12 +170,11 @@ export default {
     @apply flex-1 p-4 overflow-y-auto;
 
     > label {
-      @apply font-bold text-sm text-gray-500;
+      @apply font-bold text-sm;
     }
 
     > p {
-      @apply mb-2
-      text-base text-gray-800;
+      @apply mb-2 text-base;
     }
   }
 

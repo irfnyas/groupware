@@ -4,14 +4,14 @@
       <label
         v-if="title"
         :for="labelFor"
-        :class="['form-input__title', required && 'is-required']"
+        :class="['form-input__title dark:text-gray-300', required && 'is-required']"
       >
         {{title}}
       </label>
     </slot>
     <div
       v-if="subtitle || $slots.subtitle"
-      class="form-input__subtitle"
+      class="form-input__subtitle dark:text-gray-300"
     >
       <slot name="subtitle">
         <p>

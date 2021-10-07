@@ -4,15 +4,15 @@
       <router-link
         v-for="item in items"
         :key="item.id"
-        class="home-article-list__list-item"
+        class="home-article-list__list-item bg-white dark:bg-gray-900"
         :to="`/articles/${item.id}`">
         <i
           aria-hidden="true"
           class="fas fa-check-circle text-brand-green text-lg mr-4"
         />
-        <div class="text-left text-sm flex-grow">
+        <div class="text-left text-sm flex-grow dark:text-white">
           <p class="leading-normal">{{ item['title'] }}</p>
-          <p class="text-gray-600">{{ item['author_name'] }}</p>
+          <p class="text-gray-600 dark:text-gray-400">{{ item['author_name'] }}</p>
         </div>
       </router-link>
     </template>
@@ -52,7 +52,6 @@ export default {
   &__list-item {
     @apply p-4
     flex items-center
-    bg-white
     shadow;
 
     @screen sm {

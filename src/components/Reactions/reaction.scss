@@ -65,7 +65,7 @@
 
     &:not(:hover) {
       &.emoji-animation-disabled {
-        filter: grayscale(1) opacity(50%);
+        filter: grayscale(1) opacity(80%);
       }
     }
   }

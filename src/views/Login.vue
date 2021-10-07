@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-md  m-2 mx-auto p-8 bg-white rounded-lg shadow-md">
-    <h1 class="leading-loose text-xl font-bold">
+    <h1 class="leading-loose text-xl font-bold dark:text-white">
       Login
     </h1>
     <br/>

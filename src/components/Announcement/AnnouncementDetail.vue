@@ -5,15 +5,15 @@
         <div class="flex items-center mx-auto mr-4">
           <i aria-hidden="true" class="fas fa-check-circle text-brand-green text-lg" />
         </div>
-        <div class="text-left flex-grow">
+        <div class="text-left flex-grow dark:text-white">
           <p class="text-sm leading-normal">{{ item.title }}</p>
-          <p class="text-sm text-gray-600">{{ item.author }}</p>
-          <p class="text-sm text-gray-600">{{ item.published_at }}</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">{{ item.author }}</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">{{ item.published_at }}</p>
         </div>
       </div>
 
       <div
-        class="text-sm leading-normal mt-5 body-content"
+        class="text-sm leading-normal mt-5 body-content text-gray-700 dark:text-white"
         v-html="item.content" />
 
       <template v-if="item.backlink">

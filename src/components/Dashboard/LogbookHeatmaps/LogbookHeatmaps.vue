@@ -1,6 +1,6 @@
 <template>
   <div class="logbook-heatmaps">
-    <p class="logbook-heatmaps__title">
+    <p class="logbook-heatmaps__title text-gray-900 dark:text-white">
       Laporan Kamu
     </p>
     <div class="logbook-heatmaps__wrapper">
@@ -104,8 +104,7 @@ export default {
 .logbook-heatmaps {
 
   &__title {
-    @apply mb-4 text-base font-bold
-    text-gray-900;
+    @apply mb-4 text-base font-bold;
   }
 
   &__btn-create {
