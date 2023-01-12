@@ -132,6 +132,7 @@ export const actions = {
     await window.GAuth.signOut()
     setToken(null)
     setTokenInCookie(null)
-    window.location.reload()
+    setRefreshTokenInCookie(null)
+    await window.location.reload()
   }
 }

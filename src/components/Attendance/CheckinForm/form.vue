@@ -5,7 +5,25 @@
         {{ todayDateString }}
       </span>
       <!-- START: CHECKIN HOUR AND MINUTE INPUT -->
-      <div class="checkin-form__input-segment">
+      <div class="checkin-form__input-segment" v-if="user.manager_category!='Tim Pengelola Layanan Digital'">
+        <InputHeader
+          label-for="checkinHour_checkinMinute"
+          title="Jam Kehadiran"
+        />
+        <div class="checkin-form__hour-min">
+          <p class="text-gray-600 dark:text-gray-300">Jam</p>
+          <p class="text-gray-600 dark:text-gray-300">Menit</p>
+          <Input disabled
+            name="checkinHour"
+            :value="checkinHour"
+            />
+          <Input disabled
+            name="checkinMinute"
+            :value="checkinMinute"
+            />
+        </div>
+      </div>
+      <div class="checkin-form__input-segment" v-else>
         <InputHeader
           label-for="checkinHour_checkinMinute"
           title="Jam Kehadiran"
@@ -99,6 +117,7 @@ import setMinutes from 'date-fns/setMinutes'
 import { formatDateLong } from '../../../lib/date'
 import { ATTENDANCE } from '../../../lib/constants'
 import MoodInput from './mood-input'
+import { mapGetters } from 'vuex'
 
 const LOCATION = {
   WFH: 'WFH',
@@ -132,12 +151,17 @@ export default {
   components: {
     MoodInput,
     InputHeader: () => import('../../Form/InputHeader'),
+    Input: () => import('../../Form/Input'),
     InputSelect: () => import('../../Form/Select'),
     InputTextarea: () => import('../../Form/Textarea'),
     RadioButtonGroup: () => import('../../Form/RadioButtonGroup'),
     Dialog: () => import('../../Dialog'),
     Submission: () => import('./form-submission')
   },
+  computed: mapGetters({
+    // authLoading: 'auth/loading'
+    user: 'auth/user'
+  }),
   data () {
     return {
       todayDateString: formatDateLong(new Date()),
