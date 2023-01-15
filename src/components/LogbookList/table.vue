@@ -13,10 +13,16 @@
       </p>
       <p>
         <button
+          v-if="isCheckinState"
           class="header-action-button bg-blue-500"
           @click="onCreateNewLogbook">
           + Buat Laporan Baru
         </button>
+        <strong
+          v-else
+          class="p-2 my-0 rounded-md border border-solid border-orange-500 bg-orange-100">
+          <span class="text-orange-700">Silahkan Checkin untuk Buat Laporan</span>
+        </strong>
       </p>
     </header>
     <div class="overflow-x-auto overflow-y-hidden">
@@ -112,6 +118,9 @@ export default {
         endDate: this.mQuery.endDate,
         perPage: this.mQuery.perPage
       }
+    },
+    isCheckinState () {
+      return this.$store.state['checkins-list'].isCheckin
     },
     startIndex () {
       if (this.totalCount) {

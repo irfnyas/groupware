@@ -1,0 +1,4 @@
+const ENVERYWHERE_APP_MODE = 'production'
+const ENVERYWHERE_FIREBASE_CRED = '{"apiKey":"AIzaSyB2J4lGyL9MZNaUiRhmbCr3lfd2yT6fvHI","authDomain":"sapajds.firebaseapp.com","databaseURL":"https://sapajds.firebaseio.com","projectId":"sapajds","storageBucket":"sapajds.appspot.com","messagingSenderId":"867220352075","appId":"1:867220352075:web:dd6e33d19869652bfbb1ce","measurementId":"G-9DQ4MEKRBE", "publicVapidKey": "BL_nig-pnj8MoSA2R--XHCIAeKCZf2-_GDidutJIq1e5Q0p2Tem4aLGohU_3Roz8GT2A8aFAc8y2YsNXq2k5BFU"}'
+const ENVERYWHERE_FIREBASE_CRED_STAGING = '{"apiKey":"AIzaSyCK9aWlDCdFADwi9Zw41zM1CHwPCF-8ilM","authDomain":"digiteam-staging.firebaseapp.com","projectId":"digiteam-staging","storageBucket":"digiteam-staging.appspot.com","messagingSenderId":"282366945874","appId":"1:282366945874:web:cd2685d56a171cd183cd8b","measurementId":"G-6VSB5PFC14", "publicVapidKey": "BJWWCPlg8QNGxNO70MP8iM3Sg3HpqC_N8R6vylBWytx4mXh72ktMirXRJ6DkFcNhJskG4leo30KZSkOimyEG8VY"}'
+const VERSION = '1.0.4'

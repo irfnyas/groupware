@@ -24,9 +24,15 @@
     </div>
     <button
       class="logbook-heatmaps__btn-create"
-      @click="onCreateNewLogbook">
+      @click="onCreateNewLogbook"
+      v-if="isCheckinState">
       + Buat Laporan Baru
     </button>
+    <div v-else class="px-4 py-2 rounded-md border border-solid border-orange-500 bg-orange-100 text-gray-700">
+      <strong>
+        <span class="text-orange-700">Silahkan Checkin untuk Buat Laporan</span>
+      </strong>
+    </div>
   </div>
 </template>
 
@@ -63,6 +69,9 @@ export default {
     ...mapState('logbook-heatmap', {
       isLoading: 'isLoading'
     }),
+    isCheckinState () {
+      return this.$store.state['checkins-list'].isCheckin
+    },
     listOfMonths () {
       const today = new Date()
       return new Array(this.numOfMonths)
