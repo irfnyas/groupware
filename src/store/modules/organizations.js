@@ -54,7 +54,8 @@ export const actions = {
       return GroupwareAPI.get('/project/', {
         params: {
           // TODO: should be lazy loaded
-          pageSize: 250
+          block: 'disable',
+          pageSize: 500
         }
       })
         .then(r => r.data.results)
@@ -69,6 +70,7 @@ export const actions = {
   },
   fetchEducations ({ state, commit }, { fresh = false } = {}) {
     const educations = [
+      'SMK/SMA',
       'Diploma',
       'S1',
       'S2',

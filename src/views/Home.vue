@@ -32,7 +32,7 @@
                 <LogbookHeatmaps />
               </div>
               <div class="home-card mb-4 bg-white dark:bg-gray-900">
-                <div class="grid grid-cols-3 gap-12">
+                <div class="grid grid-cols-3 gap-12" v-if="'Tim Pengelola Layanan Digital' == user.manager_category || 'ASN' == user.divisi">
                   <component
                     v-for="(m, index) in menuItems"
                     :key="index"
@@ -44,6 +44,21 @@
                     </div>
                   </component>
                 </div>
+                <div class="grid grid-cols-3 gap-12" v-else>
+                  <component
+                    v-for="(m, index) in menuItems.slice(0, 3)"
+                    :key="index"
+                    :is="getMenuLinkComponent(m)"
+                    v-bind="getMenuLinkProps(m)" >
+                    <div class="text-center text-gray-700 dark:text-white">
+                      <i aria-hidden="true" :class="[m.icon, 'text-2xl'] " />
+                      <p class="text-xs mt-1">{{m.name}}</p>
+                    </div>
+                  </component>
+                </div>
+              </div>
+              <div class="home-card mb-4 bg-white dark:bg-gray-900">
+                <LogoutButton/>
               </div>
             </template>
           </div>
@@ -73,6 +88,7 @@ import AnnouncementList from '@/components/Announcement/AnnouncementList'
 import HomeArticleList from '@/components/HomeArticleList'
 import UserInfo from '@/components/UserInfo'
 import AttendanceButton from '@/components/AttendanceButton'
+import LogoutButton from '@/components/LogoutButton'
 import MonthlyWorkhour from '@/components/Dashboard/MonthlyWorkhour/MonthlyWorkhour'
 import LoginUsernamePassword from '../components/LoginUsernamePassword.vue'
 
@@ -118,6 +134,7 @@ export default {
     LoginByGoogleButton,
     UserInfo,
     AttendanceButton,
+    LogoutButton,
     MonthlyWorkhour,
     LoginUsernamePassword
   },
