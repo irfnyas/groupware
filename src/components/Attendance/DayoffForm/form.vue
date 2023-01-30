@@ -106,19 +106,19 @@
           ref="evidenceImageInput"
           name="evidence"
           title="Upload Evidence"
-          rules="required|mimes:image/*|size:5120"
-          accept="image/*"
+          rules="required|mimes:application/pdf,image/*|size:5120"
+          accept="application/pdf|image/*"
           :custom-messages="{
             required: 'Evidence harus diisi',
-            mimes: 'File harus berupa gambar',
-            size: 'Gambar tidak boleh lebih dari 5MB'
+            mimes: 'File harus berupa gambar / file PDF',
+            size: 'File tidak boleh lebih dari 5MB'
           }"
           @change:url="onEvidenceImageURLChanged"
           @change:file="onEvidenceImageFileChanged"
         >
           <template #subtitle>
             <span class=" text-gray-600">
-              Misal: Foto/file surat dokter, chat izin ke koor/HR/rekan
+              Misal: file/scan surat dokter, capture chat izin ke koor/HR/Lead Tribe, Surat Cuti yang sudah TTE
             </span>
           </template>
         </EvidenceImageInput>

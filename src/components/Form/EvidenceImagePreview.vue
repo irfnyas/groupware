@@ -1,12 +1,20 @@
 <template>
   <div class="form-input__file-preview">
     <figcaption>
-      <img
-        alt="Evidence Image"
-        :src="url"
-        class="form-input__file-preview__image"
-        @click.prevent="onDownload"
-      >
+      <div v-if="filetype.includes('pdf')">
+        <pdf
+          :src="url"
+          class="form-input__file-preview__image"
+          @click.prevent="onDownload"
+        ></pdf>
+      </div>
+      <div v-else>
+        <img
+          :src="url"
+          class="form-input__file-preview__image"
+          @click.prevent="onDownload"
+        >
+      </div>
     </figcaption>
     <div class="mt-6 self-stretch md:flex-auto flex flex-col justify-between">
       <p
@@ -31,13 +39,21 @@
 </template>
 
 <script>
+import pdf from 'vue-pdf'
 export default {
+  components: {
+    pdf
+  },
   props: {
     disabled: {
       type: Boolean,
       default: false
     },
     url: {
+      type: String,
+      required: true
+    },
+    filetype: {
       type: String,
       required: true
     }

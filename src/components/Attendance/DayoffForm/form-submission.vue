@@ -31,11 +31,20 @@
         <p class="text-gray-800 dark:text-gray-300">{{ payload.note || '-' }}</p>
 
         <label class="text-gray-500">Evidence</label>
-        <img
-          alt="Dayoff Evidence"
-          :src="payload.imageURL"
-          class="dayoff-confirmation__evidence"
-          @click="onPreviewImage">
+        <div v-if="payload.imageFile.type.includes('pdf')">
+          <pdf
+            :src="payload.imageURL"
+            class="dayoff-confirmation__evidence"
+            @click="onPreviewImage"
+          ></pdf>
+        </div>
+        <div v-else>
+          <img
+            :src="payload.imageURL"
+            class="dayoff-confirmation__evidence"
+            @click="onPreviewImage"
+          >
+        </div>
       </div>
       <div class="dayoff-confirmation__actions">
         <button class="dayoff-confirmation__btn btn-confirm" @click="onSubmit">
@@ -59,6 +68,7 @@
 </template>
 
 <script>
+import pdf from 'vue-pdf'
 import pMinDelay from 'p-min-delay'
 import mapKeys from 'lodash/mapKeys'
 import snakeCase from 'lodash/snakeCase'
@@ -73,7 +83,8 @@ const STATUS = {
 
 export default {
   components: {
-    APIPostDataLoadingDialog: () => import('../../APIPostDataLoadingDialog')
+    APIPostDataLoadingDialog: () => import('../../APIPostDataLoadingDialog'),
+    pdf
   },
   props: {
     payload: {

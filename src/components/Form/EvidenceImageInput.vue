@@ -16,6 +16,7 @@
     <template v-if="mUrl">
       <EvidenceImagePreview
         :url="mUrl"
+        :filetype="mFile.type"
         :disabled="disabled"
         @replace="onReplaceFile"
       />
@@ -24,7 +25,7 @@
       ref="fileSelector"
       v-show="!mUrl"
       :url="mUrl"
-      accept="image/*"
+      accept="application/pdf,image/*"
       v-bind="$props"
       @preview="onPreview"
       @change="onSelectedFileChange"

@@ -31,10 +31,9 @@
       </ul>
     </template>
     <template #column-file_url="{ row }">
-      <img
-        alt="Dayoff Evidence"
-        :src="row.file_url"
-        class="dayoff-table__evidence">
+      <div>
+        <a :href="row.file_url"><button class="w-auto py-2 px-4 mr-4 rounded border border-solid border-blue-500 text-blue-500 hover:opacity-50 hover:bg-blue-100">Download</button></a>
+      </div>
     </template>
   </DataTable>
 </template>
