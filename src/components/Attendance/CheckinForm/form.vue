@@ -130,7 +130,7 @@ const hourOptions = new Array(24).fill(null).map((_, n) => {
 })
 
 const minuteOptions = new Array(60 / 5).fill(null).map((_, n) => {
-  return (n < 10 / 5) ? `0${n * 5}` : `${n * 5}`
+  return (n < 10 / 1) ? `0${n * 1}` : `${n * 1}`
 })
 
 const locationOptions = [
