@@ -5,7 +5,7 @@
         {{ todayDateString }}
       </span>
       <!-- START: CHECKIN HOUR AND MINUTE INPUT -->
-      <!-- <div class="checkin-form__input-segment" v-if="user.manager_category!='Tim Pengelola Layanan Digital'">
+      <div class="checkin-form__input-segment">
         <InputHeader
           label-for="checkinHour_checkinMinute"
           title="Jam Kehadiran"
@@ -22,8 +22,8 @@
             :value="checkinMinute"
             />
         </div>
-      </div> -->
-      <div class="checkin-form__input-segment">
+      </div>
+      <!-- <div class="checkin-form__input-segment">
         <InputHeader
           label-for="checkinHour_checkinMinute"
           title="Jam Kehadiran"
@@ -46,7 +46,7 @@
             @change="onCheckinMinuteChanged"
             />
         </div>
-      </div>
+      </div> -->
       <!-- END: CHECKIN HOUR AND MINUTE INPUT -->
 
       <!-- START: LOCATION INPUT -->
@@ -151,8 +151,8 @@ export default {
   components: {
     MoodInput,
     InputHeader: () => import('../../Form/InputHeader'),
-    // Input: () => import('../../Form/Input'),
-    InputSelect: () => import('../../Form/Select'),
+    Input: () => import('../../Form/Input'),
+    // InputSelect: () => import('../../Form/Select'),
     InputTextarea: () => import('../../Form/Textarea'),
     RadioButtonGroup: () => import('../../Form/RadioButtonGroup'),
     Dialog: () => import('../../Dialog'),
