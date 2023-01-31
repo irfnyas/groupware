@@ -14,8 +14,9 @@
       </template>
     </FormInputHeader>
     <template v-if="mUrl">
-      <EvidenceImagePreview
+      <DayOffImagePreview
         :url="mUrl"
+        :filetype="mFile.type"
         :disabled="disabled"
         @replace="onReplaceFile"
       />
@@ -42,7 +43,7 @@ import { props, components } from './input-mixin'
 export default {
   components: {
     ...components,
-    EvidenceImagePreview: () => import('./EvidenceImagePreview'),
+    DayOffImagePreview: () => import('./DayOffImagePreview'),
     FileSelector: () => import('./FileSelector')
   },
   model: {

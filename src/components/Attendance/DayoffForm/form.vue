@@ -102,8 +102,8 @@
 
       <!-- START: EVIDENCE INPUT -->
       <div class="dayoff-form__input-segment">
-        <EvidenceImageInput
-          ref="evidenceImageInput"
+        <DayOffImageInput
+          ref="dayOffImageInput"
           name="evidence"
           title="Upload Evidence"
           rules="required|mimes:application/pdf,image/*|size:5120"
@@ -121,7 +121,7 @@
               Misal: file/scan surat dokter, capture chat izin ke koor/HR/Lead Tribe, Surat Cuti yang sudah TTE
             </span>
           </template>
-        </EvidenceImageInput>
+        </DayOffImageInput>
       </div>
       <!-- END: EVIDENCE INPUT -->
 
@@ -181,7 +181,7 @@ export default {
     InputDateTime: () => import('../../Form/InputDateTime'),
     InputTextarea: () => import('../../Form/Textarea'),
     RadioButtonGroup: () => import('../../Form/RadioButtonGroup'),
-    EvidenceImageInput: () => import('../../Form/EvidenceImageInput')
+    DayOffImageInput: () => import('../../Form/DayOffImageInput')
   },
   data () {
     return {
