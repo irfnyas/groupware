@@ -194,7 +194,7 @@ export default {
       const today = new Date()
       let currentHour = today.getHours()
 
-      let currentMinute = Math.round(today.getMinutes() / 5) * 5
+      let currentMinute = Math.round(today.getMinutes() / 1) * 1
       if (currentMinute < 10) {
         currentMinute = `0${currentMinute}`
       } else if (currentMinute === 60) {
