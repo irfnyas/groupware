@@ -129,7 +129,7 @@ const hourOptions = new Array(24).fill(null).map((_, n) => {
   return n < 10 ? `0${n}` : `${n}`
 })
 
-const minuteOptions = new Array(60 / 5).fill(null).map((_, n) => {
+const minuteOptions = new Array(60 / 1).fill(null).map((_, n) => {
   return (n < 10 / 1) ? `0${n * 1}` : `${n * 1}`
 })
 
