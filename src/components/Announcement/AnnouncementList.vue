@@ -18,45 +18,48 @@
           </div>
         </router-link>
       </div>
+      <div class="w-full mx-2 my-2" v-if="('Tim Pengelola Layanan Digital' == user.manager_category || 'ASN' == user.divisi) && true == user.is_admin">
+        <router-link
+          to="/announcementcreate"
+          class="w-full text-center shadow block bg-brand-blue text-white font-bold py-2 px-4 rounded">
+          Buat Pengumuman
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
+import { formatDateTimeShort } from '@/lib/date'
+
 export default {
-  computed: {
-    ...mapState('announcement-list', {
-      items: 'items',
-      isLoading: 'isLoading'
-    })
-  },
-  watch: {
-    isLoading: {
-      immediate: true,
-      handler (v) {
-        this.$emit('loading', v)
-      }
-    }
-  },
-  created () {
-    this.loadData()
-  },
+  computed: mapGetters({
+    loading: 'home-announcement/loading',
+    items: 'home-announcement/items',
+    user: 'auth/user'
+  }),
+
   methods: {
-    async loadData () {
-      try {
-        await this.$store.dispatch('announcement-list/fetchItems')
-        if (Array.isArray(this.items)) {
-          if (this.items.length) {
-            this.$emit('found')
-          } else {
-            this.$emit('empty')
-          }
-        }
-      } catch (e) {
-        this.$emit('error')
-      }
-    }
+    formatDateTimeShort
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.home-announcement-list {
+  &__list-item {
+    @apply p-4
+    flex items-center
+    shadow;
+
+    @screen sm {
+      @apply rounded-lg;
+    }
+
+    & + & {
+      @apply mt-2;
+    }
+  }
+}
+</style>

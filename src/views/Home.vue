@@ -64,11 +64,11 @@
           </div>
         </div>
         <div class="app-grid-layout__second-column">
-          <div v-if="user" v-show="showAnnouncement">
+          <div v-if="user">
             <h5 class="font-bold text-lg m-4 mt-0 leading-none dark:text-white">
               Pengumuman Penting
             </h5>
-            <AnnouncementList class="mt-2" @found="showAnnouncement = true" />
+            <AnnouncementList/>
           </div>
           <h5 class="home-section-title dark:text-white">
             Artikel

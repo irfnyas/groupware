@@ -83,6 +83,7 @@ export default {
   mounted () {
     this.$store.dispatch('home-banners/fetchItems')
     this.$store.dispatch('home-articles/fetchItems')
+    this.$store.dispatch('home-announcement/fetchItems')
     this.$store.dispatch('messages-list/fetchItems')
     this.$store.dispatch('events-list/fetchItems')
     this.$store.dispatch('thankyou-list/fetchItems')

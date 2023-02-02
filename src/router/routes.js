@@ -19,7 +19,12 @@ export default [
   {
     path: '/announcement/:id',
     name: 'announcement.detail',
-    component: page('Announcement/_id.vue')
+    component: page('AnnouncementDetail.vue')
+  },
+  {
+    path: '/announcementcreate',
+    name: 'announcement.create',
+    component: page('AnnouncementCreate.vue')
   },
   {
     path: '/messages',
