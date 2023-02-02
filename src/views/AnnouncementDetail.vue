@@ -45,6 +45,12 @@
           </ContentLoader>
         </template>
       </div>
+      <div class="w-full my-2" v-if="('Tim Pengelola Layanan Digital' == user.manager_category || 'ASN' == user.divisi) && true == user.is_admin">
+        <button @click="deleteAnnouncement" class="w-full bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+          Hapus
+        </button>
+        <br>
+      </div>
     </div>
   </div>
 </template>
@@ -53,7 +59,7 @@
 import { mapGetters } from 'vuex'
 import { ContentLoader } from 'vue-content-loader'
 import { formatDateTimeShort } from '@/lib/date'
-import { analytics } from '@/lib/firebase'
+import { analytics, db } from '@/lib/firebase'
 
 export default {
   components: {
@@ -66,7 +72,8 @@ export default {
 
   computed: mapGetters({
     loading: 'announcements-detail/loading',
-    item: 'announcements-detail/item'
+    item: 'announcements-detail/item',
+    user: 'auth/user'
   }),
 
   mounted () {
@@ -88,6 +95,24 @@ export default {
 
     clickAction () {
       analytics.logEvent('announcement_detail_click_action', { id: this.$route.params.id })
+    },
+
+    async deleteAnnouncement () {
+      analytics.logEvent('announcement_delete_click')
+
+      const id = this.$route.params.id
+
+      if (id === '') {
+        return false
+      }
+
+      const collectionRef = await db.collection('announcement')
+
+      await collectionRef.doc(id).delete()
+
+      this.id = ''
+      await this.$router.push('/')
+      await this.$store.dispatch('home-announcement/fetchItems')
     }
   }
 }
