@@ -82,7 +82,21 @@
       </div>
 
       <!-- START: NOTE INPUT -->
-      <div class="checkin-form__input-segment">
+      <div class="checkin-form__input-segment" v-if="checkinHour>=8 || (checkinHour>=7 && checkinMinute>=30)">
+        <InputTextarea
+          name="note"
+          rows="5"
+          title="Alasan Keterlambatan"
+          rules="required"
+          :placeholder="noteLatePlaceholder"
+          :custom-messages="{
+            required: 'Alasan keterlambatan harus diisi'
+          }"
+          v-model="payload.note"
+          />
+      </div>
+
+      <div class="checkin-form__input-segment" v-else>
         <InputTextarea
           name="note"
           rows="5"
@@ -172,6 +186,7 @@ export default {
       checkinHour: null,
       checkinMinute: null,
       notePlaceholder: 'Ketikkan lokasi kerja kamu/agenda kamu hari ini/pesan penyemangat untuk teman-teman kamu disini',
+      noteLatePlaceholder: 'Loh kok telat, kenapa bisa telat?',
       payload: _cloneDeep(emptyPayload),
 
       showSubmissionDialog: false
