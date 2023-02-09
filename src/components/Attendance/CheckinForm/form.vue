@@ -86,11 +86,12 @@
         <InputTextarea
           name="note"
           rows="5"
-          title="Alasan Keterlambatan"
-          rules="required"
+          title="Alasan dan Solusi Keterlambatan Presensi"
+          rules="required|min:25"
           :placeholder="noteLatePlaceholder"
           :custom-messages="{
-            required: 'Alasan keterlambatan harus diisi'
+            required: 'Alasan dan Solusi Keterlambatan Presensi Harus Diisi',
+            min: 'Minimal 25 Karakter'
           }"
           v-model="payload.note"
           />
@@ -186,7 +187,7 @@ export default {
       checkinHour: null,
       checkinMinute: null,
       notePlaceholder: 'Ketikkan lokasi kerja kamu/agenda kamu hari ini/pesan penyemangat untuk teman-teman kamu disini',
-      noteLatePlaceholder: 'Loh kok telat, kenapa bisa telat?',
+      noteLatePlaceholder: 'Tuliskan alasan telatmu yang ga seberapa itu + janji-janji manis yang akan kamu lakukan agar ga terlambat lagi. Yang isi tulisannya ga sesuai arahan mimin catat!',
       payload: _cloneDeep(emptyPayload),
 
       showSubmissionDialog: false
