@@ -109,9 +109,14 @@
       </div>
       <!-- END: NOTE INPUT -->
     </div>
-    <button class="checkin-form__btn-submit" @click="handleSubmit(beforeSubmit)">
+    <button class="checkin-form__btn-submit" @click="handleSubmit(beforeSubmit)" v-if="checkinHour>=6 || (checkinHour>=5 && checkinMinute>=30)">
       Kirim
     </button>
+    <div v-else class="px-4 py-2 mt-12 rounded-md border border-solid border-orange-500 bg-orange-100 text-gray-700 text-center">
+      <strong>
+        <span class="text-orange-700">Checkin bisa dilakukan setelah 05:30</span>
+      </strong>
+    </div>
 
     <Dialog :show="showSubmissionDialog">
       <Submission

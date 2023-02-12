@@ -28,7 +28,7 @@
       v-if="isCheckinState">
       + Buat Laporan Baru
     </button>
-    <div v-else class="px-4 py-2 rounded-md border border-solid border-orange-500 bg-orange-100 text-gray-700">
+    <div v-else class="px-4 py-2 rounded-md border border-solid border-orange-500 bg-orange-100 text-gray-700 text-center">
       <strong>
         <span class="text-orange-700">Silahkan Checkin untuk Buat Laporan</span>
       </strong>

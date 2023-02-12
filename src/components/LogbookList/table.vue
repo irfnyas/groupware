@@ -20,7 +20,7 @@
         </button>
         <strong
           v-else
-          class="p-2 my-0 rounded-md border border-solid border-orange-500 bg-orange-100">
+          class="p-2 my-0 rounded-md border border-solid border-orange-500 bg-orange-100 text-center">
           <span class="text-orange-700">Silahkan Checkin untuk Buat Laporan</span>
         </strong>
       </p>
