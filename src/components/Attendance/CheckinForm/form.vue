@@ -189,6 +189,7 @@ export default {
       minuteOptions: Object.freeze(minuteOptions),
       locationOptions: Object.freeze(locationOptions),
 
+      apiData: {},
       checkinHour: null,
       checkinMinute: null,
       notePlaceholder: 'Ketikkan lokasi kerja kamu/agenda kamu hari ini/pesan penyemangat untuk teman-teman kamu disini',
@@ -198,8 +199,14 @@ export default {
       showSubmissionDialog: false
     }
   },
-  beforeMount () {
+  async created () {
+    const apiUrl = 'https://worldtimeapi.org/api/timezone/asia/jakarta'
+    const response = await fetch(apiUrl)
+    const data = await response.json()
+    this.apiData = data.datetime
     this.getCurrentHourAndMinute()
+  },
+  mounted () {
   },
   methods: {
     formatDateLong (date) {
@@ -212,7 +219,7 @@ export default {
      * set current hour and minute to checkinHour and checkinMinute
     */
     getCurrentHourAndMinute () {
-      const today = new Date()
+      const today = new Date(this.apiData)
       let currentHour = today.getHours()
 
       let currentMinute = Math.round(today.getMinutes() / 1) * 1
