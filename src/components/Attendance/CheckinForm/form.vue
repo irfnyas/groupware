@@ -200,10 +200,14 @@ export default {
     }
   },
   async created () {
-    const apiUrl = 'https://worldtimeapi.org/api/timezone/asia/jakarta'
-    const response = await fetch(apiUrl)
-    const data = await response.json()
-    this.apiData = data.datetime
+    try {
+      const apiUrl = 'https://worldtimeapi.org/api/timezone/asia/jakarta'
+      const response = await fetch(apiUrl)
+      const data = await response.json()
+      this.apiData = data.datetime
+    } catch {
+    }
+    // console.log('waktu = ' + this.apiData)
     this.getCurrentHourAndMinute()
   },
   mounted () {
@@ -219,7 +223,10 @@ export default {
      * set current hour and minute to checkinHour and checkinMinute
     */
     getCurrentHourAndMinute () {
-      const today = new Date(this.apiData)
+      let today = new Date()
+      if (this.apiData !== undefined && typeof this.apiData === 'string') {
+        today = new Date(this.apiData)
+      }
       let currentHour = today.getHours()
 
       let currentMinute = Math.round(today.getMinutes() / 1) * 1

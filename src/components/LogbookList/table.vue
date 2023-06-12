@@ -112,15 +112,15 @@ export default {
     }
   },
   computed: {
+    isCheckinState () {
+      return this.$store.state['checkins-list'].isCheckin
+    },
     tableFilter () {
       return {
         startDate: this.mQuery.startDate,
         endDate: this.mQuery.endDate,
         perPage: this.mQuery.perPage
       }
-    },
-    isCheckinState () {
-      return this.$store.state['checkins-list'].isCheckin
     },
     startIndex () {
       if (this.totalCount) {
