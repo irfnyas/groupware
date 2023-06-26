@@ -15,12 +15,16 @@
                 Login
               </h5>
               <div
-                class="home-card bg-white dark:bg-gray-900">
+                class="home-card  mb-4 bg-white dark:bg-gray-900">
                 <login-username-password />
                 <span class="login-button-separator">
                   ATAU
                 </span>
                 <login-by-google-button />
+              </div>
+              <div
+                class="home-card  mb-4 bg-white dark:bg-gray-900">
+                <laporkan-masalah />
               </div>
             </div>
             <template v-else>
@@ -57,6 +61,10 @@
                   </component>
                 </div>
               </div>
+              <div
+                class="home-card  mb-4 bg-white dark:bg-gray-900">
+                <laporkan-masalah />
+              </div>
               <div class="home-card mb-4 bg-white dark:bg-gray-900">
                 <LogoutButton/>
               </div>
@@ -91,6 +99,7 @@ import AttendanceButton from '@/components/AttendanceButton'
 import LogoutButton from '@/components/LogoutButton'
 import MonthlyWorkhour from '@/components/Dashboard/MonthlyWorkhour/MonthlyWorkhour'
 import LoginUsernamePassword from '../components/LoginUsernamePassword.vue'
+import LaporkanMasalah from '../components/LaporkanMasalah.vue'
 
 const menuItems = Object.freeze([
   {
@@ -136,7 +145,8 @@ export default {
     AttendanceButton,
     LogoutButton,
     MonthlyWorkhour,
-    LoginUsernamePassword
+    LoginUsernamePassword,
+    LaporkanMasalah
   },
 
   metaInfo: {
