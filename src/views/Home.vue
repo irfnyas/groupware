@@ -30,7 +30,12 @@
             <template v-else>
               <div class="home-card mb-4 bg-white dark:bg-gray-900">
                 <MonthlyWorkhour />
-                <AttendanceButton class="mt-8"/>
+                <div v-if="user.is_wfa == false">
+                  <MobileAppsButton class="mt-8"/>
+                </div>
+                <div v-else>
+                  <AttendanceButton class="mt-8"/>
+                </div>
               </div>
               <div class="home-card mb-4 bg-white dark:bg-gray-900">
                 <LogbookHeatmaps />
@@ -96,6 +101,7 @@ import AnnouncementList from '@/components/Announcement/AnnouncementList'
 import HomeArticleList from '@/components/HomeArticleList'
 import UserInfo from '@/components/UserInfo'
 import AttendanceButton from '@/components/AttendanceButton'
+import MobileAppsButton from '@/components/MobileAppsButton'
 import LogoutButton from '@/components/LogoutButton'
 import MonthlyWorkhour from '@/components/Dashboard/MonthlyWorkhour/MonthlyWorkhour'
 import LoginUsernamePassword from '../components/LoginUsernamePassword.vue'
@@ -143,6 +149,7 @@ export default {
     LoginByGoogleButton,
     UserInfo,
     AttendanceButton,
+    MobileAppsButton,
     LogoutButton,
     MonthlyWorkhour,
     LoginUsernamePassword,

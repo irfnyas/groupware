@@ -50,9 +50,9 @@ export default {
   },
   methods: {
     onClick () {
-      return this.signOut()
+      return this.aduan()
     },
-    async signOut () {
+    async aduan () {
       try {
         this.showSpinner = true
         window.open('https://forms.gle/Lqwti4tFg1PSa3vQ8', '_blank')
